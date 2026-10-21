@@ -1,0 +1,52 @@
+/* Wander Notes - travel blog */
+:root{--green:#1e5e46;--dark:#1a1a1a;--light:#f3f6f4;--accent:#ffd166}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:var(--dark);background:#fff}
+
+/* Skip link: hidden off-screen, visible only on focus */
+.skip-link{position:absolute;top:-100px;left:10px;background:var(--accent);color:var(--dark);padding:10px 16px;border:2px solid var(--dark);border-radius:6px;font-weight:bold;z-index:100}
+.skip-link:focus{top:10px}
+
+/* Header + navigation (flex) */
+header{background:var(--green);padding:16px}
+header .logo{color:#fff;font-size:1.6rem;font-weight:bold;text-decoration:none}
+nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;list-style:none;margin:12px 0 0;padding:0}
+nav a{display:block;color:#fff;text-decoration:none;font-weight:bold;padding:10px 20px;border:2px solid #fff;border-radius:30px;transition:background .3s,color .3s}
+nav a:hover,nav a:focus{background:#fff;color:var(--green)}
+nav a[aria-current="page"]{background:var(--accent);color:var(--dark);border-color:var(--accent)}
+a:focus{outline:3px solid var(--dark);outline-offset:2px}
+
+main{max-width:1000px;margin:0 auto;padding:24px 16px}
+h1,h2{color:var(--green)}
+.intro{text-align:center;max-width:650px;margin:0 auto 24px}
+
+/* Images: box model (border, padding, border-radius) */
+img{display:block;width:100%;height:auto;border:4px solid var(--green);padding:8px;border-radius:12px;background:#fff;transition:transform .3s,box-shadow .3s}
+img:hover{transform:scale(1.05) rotate(-1deg);box-shadow:0 8px 16px rgba(0,0,0,.3)}
+figure{margin:0}
+figcaption{margin-top:8px;font-size:.95rem;text-align:center}
+
+/* Grid (home page cards) */
+.grid{display:grid;grid-template-columns:1fr;gap:20px}
+.card{background:var(--light);padding:16px;border-radius:12px}
+.card h2{font-size:1.2rem;margin-top:12px}
+
+/* Flex (gallery) + nth-child */
+.gallery{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+.gallery figure{flex:1 1 280px;max-width:320px}
+.gallery figure:nth-child(even) img{border-radius:50px;border-color:var(--dark)}
+.gallery figure:nth-child(odd) img{border-radius:8px}
+
+/* About page */
+.about{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+
+footer{background:var(--dark);color:#fff;text-align:center;padding:20px}
+
+@media (min-width:700px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .about{grid-template-columns:1fr 2fr}
+  header{display:flex;justify-content:space-between;align-items:center}
+  nav ul{margin:0}
+}
+
+.about img{max-width:260px;margin:0 auto}
